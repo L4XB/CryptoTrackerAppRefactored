@@ -1,6 +1,6 @@
 {
-    "name": "chaining",
-    "short_name": "chaining",
+    "name": "foodapp",
+    "short_name": "foodapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

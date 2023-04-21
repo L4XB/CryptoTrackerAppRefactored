@@ -1,0 +1,17 @@
+{
+    "@@locale": "de",
+    "helloWorld": "Hallo Welt",
+    "@helloWorld": {
+        "description": "The conventional newborn programmer greeting"
+    },
+    "hello": "Hallo {userName}",
+    "@hello": {
+        "description": "A message with a single parameter",
+        "placeholders": {
+            "userName": {
+                "type": "String",
+                "example": "Lukas"
+            }
+        }
+    }
+}

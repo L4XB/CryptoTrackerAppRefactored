@@ -1,4 +1,4 @@
-package com.example.chaining
+package com.example.foodapp
 
 import io.flutter.embedding.android.FlutterActivity
 

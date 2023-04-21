@@ -1,0 +1,1 @@
+enum ConnectionExeptionType { noInternetConnection, serverIssues }

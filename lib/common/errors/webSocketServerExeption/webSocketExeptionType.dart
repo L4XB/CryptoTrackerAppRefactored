@@ -1,0 +1,4 @@
+enum WebSocketExeptionType {
+  serverIssues,
+  cantSendMessage,
+}
