@@ -6,6 +6,7 @@ import 'package:foodapp/common/errors/runtimeExeption/runtimeExeption.dart';
 import 'package:foodapp/common/errors/runtimeExeption/runtimeExeptionType.dart';
 import 'package:foodapp/common/util/checkUserModelData.dart';
 import 'package:foodapp/common/util/decodeApiData.dart';
+import 'package:foodapp/common/util/decodeModels.dart';
 import 'package:foodapp/common/util/handelingStatusCodes.dart';
 import 'package:foodapp/common/util/sendApiRequest.dart';
 import 'package:foodapp/config/apiConfig/apiConfig.dart';
@@ -43,7 +44,9 @@ class UserProvider {
         : throw ConnectionExeption(ConnectionExeptionType.noInternetConnection);
   }
 
-  //Login
+  ///Login
+  ///[password] -> Passwor of User Account
+  ///[mail] -> Mail of user Account
   Future<UserModel?> userLogin(String password, String mail) async {
     //Response
     Response response;
@@ -62,22 +65,8 @@ class UserProvider {
 
     //Handel StatusCode
     if (HandelingStatusCodes().handelStatusCode(response.statusCode)) {
-      //Get first Decode
-      var body = DecodeApiData().decodeApiDataAtPlace("user", response);
-
-      //Decode at user Instance
-      var decodetBody = jsonDecode(response.toString());
-      UserModel user = UserModel();
-      try {
-        user.age = body["age"];
-        user.mail = body["email"];
-        user.name = body["name"];
-        user.avatarURL =
-            "${"http://h2980175.stratoserver.net/users/" + body["_id"]}/avatar";
-        user.sessioToken = decodetBody["token"];
-      } catch (e) {
-        throw RuntimeExeption(RunTimeExeptionType.CantParseData);
-      }
+      //Decode user Model
+      UserModel user = DecodeModel().decodeUserModel(response);
 
       return user;
     } else {
