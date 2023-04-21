@@ -7,4 +7,11 @@ class SendApiRequest {
   Future<Response> sendApiPOSTRequets(Object data, String url) async {
     return await Dio().post(url, data: data);
   }
+
+  ///[data] -> Body data of API Request
+  ///[url] -> URl of the API
+  ///[returns] -> Response of API Request
+  Future<Response> sendApiGETRequets(Object data, String url) async {
+    return await Dio().get(url, data: data);
+  }
 }

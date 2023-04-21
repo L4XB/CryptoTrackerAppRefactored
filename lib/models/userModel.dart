@@ -5,4 +5,5 @@ class UserModel {
   String? age;
   String? id;
   String? avatarURL;
+  String? sessioToken;
 }
