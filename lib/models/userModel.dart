@@ -3,4 +3,6 @@ class UserModel {
   String? mail;
   String? password;
   String? age;
+  String? id;
+  String? avatarURL;
 }
